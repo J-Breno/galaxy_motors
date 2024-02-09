@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página de cadastros</title>
+        <link rel="stylesheet" href="/aula-28/assets/css/cadastro/style.css">
+    </head>
+
+    <body>
+        <header>
+            <h2><span data-js="empresa" class="empresa"></span> - <span data-js="contato" class="contato"></span></h2>
+            <nav>
+                <ul>
+                    <li>Cadastro</li>
+                    <li>Contado</li>
+                    <li><a href="/aula-28/html/login/" class="sair">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <form action="" class="crud">
+                <div>
+                    <label for="img">Image(url):</label><br>
+                    <input data-js="img-input" class="img-input" type="text" name="img" id="img"><br>
+                </div>
+                <div>
+                    <label for="marca">Marca/modelo:</label><br>
+                    <input data-js="marca-input" class="marca-input" type="text" name="marca" id="marca"><br>
+                </div>
+                <div>
+                    <label for="ano">Ano:</label><br>
+                    <input data-js="ano-input" class="ano-input" type="text" name="ano" id="ano"><br>
+                </div>
+                <div>
+                    <label for="placa">Placa:</label><br>
+                    <input data-js="placa-input" class="placa-input" type="text" name="placa" id="placa"><br>
+                </div>
+                <div>
+                    <label for="cor">Cor:</label><br>
+                    <input data-js="cor-input" class="cor-input" type="text" name="cor" id="cor">
+                </div>
+                <button data-js="btn-cadastrar" class="btn-cadastrar">Cadastrar</button>
+            </form>
+            <h2 class="carros-h2">Carros a Venda</h2>
+            <div data-js="carros" class="carros">
+                <div class="card-car">
+                    <div>
+                        <img class="card"  src="/aula-28/img/bg-estrelas.jpeg" alt="">
+                        <div class="informacoes">
+                            <p class="key-info">FIAT: <span class="resp-infor">Palio</span></p>
+                            <p class="key-info">Ano: <span class="resp-infor">2019</span></p>
+                            <p class="key-info">Placa: <span class="resp-infor">pnj2019b</span></p>
+                            <p class="key-info">Cor: <span class="resp-infor">Preto</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="">
+                <h2 class="empresa"><span data-js="empresa">Galáxia Motors</span></h2>
+            </div>
+            <div class="contatos-footer">
+                <h2>Contato</h2>
+                <ul>
+                    <li><span data-js="contato" class="contato"></span></li>
+                    <li>contato@galaxiaMotors.com</li><br>
+                    <li>Rua Ali Perto, 42 - Caucaia</li>
+                    <li>Caucaia - CE</li>
+                </ul>
+                <div class="redes">
+                    <img src="/aula-28/img/instagram.svg" alt="">
+                    <img src="/aula-28/img/facebook.svg" alt="">
+                    <img src="/aula-28/img/youtube.svg" alt="">
+                </div>
+            </div>
+            <div class="informacoes-footer">
+                <h2>Informações</h2>
+                <ul class="info-footer">
+                    <li>Bicicletas</li>
+                    <li>Seguros</li>
+                    <li>Contato</li>
+                    <li>Termos e Condições</li>
+                </ul>
+
+            </div>
+            <div class="final"><p><span data-js="empresa">Galáxia Motors</span> © Alguns direitos reservados.</p></div>
+        </footer>
+
+        <script src="/aula-28/assets/js/lib_dom/dom.js"></script>
+        <script src="/aula-28/assets/js/cadastro/cadastro_veiculo.js"></script>
+    </body>
+
+</html>

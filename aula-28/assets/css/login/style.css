@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+  --color-p-a: rgba(98, 100, 118, 1);
+  --color-picture: #fdfdff;
+  --color-text-shadow: rgba(255, 255, 255, 0.5);
+  --alert-bg-error: rgb(255, 82, 82);
+  --alert-color-error: rgb(103, 14, 14);
+  --alert-bg-acert: rgb(99, 255, 82);
+  --alert-color-acert: rgb(14, 103, 14);
+  --linear-gradient-btn: linear-gradient(
+    90deg,
+    rgba(11, 157, 202, 1),
+    rgba(0, 183, 188, 1)
+  );
+  --linear-gradient-btn-hover: linear-gradient(
+    180deg,
+    rgba(11, 157, 202, 1),
+    rgba(0, 183, 188, 1)
+  );
+  --border-input-error: rgb(227, 0, 0);
+  --border-input-acert: rgb(83, 227, 0);
+  --color-btn: rgba(255, 255, 255, 1);
+}
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  font-family: "Jakarta Sans", Arial, Helvetica, sans-serif;
+}
+p,
+a {
+  color: var(--color-p-a);
+}
+main.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.picture {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/aula-28/img/bg-estrelas.jpeg");
+  background-repeat: no-repeat;
+  background-position: right;
+  color: var(--color-picture);
+  text-shadow: 0px 5px 6px var(--color-text-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: auto;
+  transition: background-position 1s;
+  animation: slide 90s linear forwards alternate-reverse;
+  animation-iteration-count: infinite;
+
+  & h2 {
+    font-size: 4.16rem;
+  }
+  & p {
+    font-size: 2.4rem;
+    color: var(--color-picture);
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+div.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div.logo {
+  margin-bottom: 3rem;
+}
+form.login.none {
+  display: none;
+  transition: 0.3s;
+}
+
+form.none {
+  display: none;
+  transition: 0.4s;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 53.7rem;
+  height: 67.2rem;
+  & div.userNameResponse-none {
+    display: none;
+  }
+  & div.userNameResponse-error {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--alert-bg-error);
+    color: var(--alert-color-error);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 3.5rem;
+    transition: 0.5s;
+  }
+  & div.userNameResponse-acert {
+    text-align: center;
+    background-color: var(--alert-bg-acert);
+    color: var(--alert-color-acert);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 3.5rem;
+    transition: 0.5s;
+  }
+
+  & input {
+    height: 3.7rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid rgba(204, 204, 204, 1);
+    margin: 0 0 1rem 0;
+
+    &.error-email {
+      outline: none;
+      border: 2px solid var(--border-input-error);
+    }
+    &.acert-email {
+      outline: none;
+      border: 2px solid var(--border-input-acert);
+    }
+    &.error-pass {
+      outline: none;
+      border: 2px solid var(--border-input-error);
+    }
+    &.acert-pass {
+      outline: none;
+      border: 2px solid var(--border-input-acert);
+    }
+    &.error-pass-confirm {
+      outline: none;
+      border: 2px solid var(--border-input-error);
+    }
+    &.acert-pass-confirm {
+      outline: none;
+      border: 2px solid var(--border-input-acert);
+    }
+
+    &.confirme-senha_off {
+      background-repeat: no-repeat;
+      background-position: 40rem;
+    }
+    &.senha-cadastro_off {
+      background-repeat: no-repeat;
+      background-position: 50rem;
+    }
+
+    &.confirme-senha {
+      background-image: url("/aula-28/img/visibility.svg");
+      background-repeat: no-repeat;
+      background-position: 50rem;
+    }
+    &.senha-cadastro {
+      background-image: url("/aula-28/img/visibility.svg");
+      background-repeat: no-repeat;
+      background-position: 50rem;
+    }
+  }
+  & img.senha-login_off {
+    position: absolute;
+    z-index: 1;
+    top: 28.5rem;
+    right: 13rem;
+    cursor: pointer;
+  }
+  & img.senha-login {
+    position: absolute;
+    z-index: 1;
+    top: 28.5rem;
+    right: 13rem;
+    cursor: pointer;
+  }
+
+  & img.senha-cadastro_off {
+    position: absolute;
+    z-index: 1;
+    top: 30.8rem;
+    right: 13rem;
+    cursor: pointer;
+  }
+  & img.confirme-senha_off {
+    position: absolute;
+    z-index: 1;
+    top: 35.4rem;
+    right: 12.7rem;
+    cursor: pointer;
+  }
+  & img.senha-cadastro {
+    background-image: url("/aula-28/img/visibility.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: 30.8rem;
+    right: 13rem;
+    cursor: pointer;
+  }
+  & img.confirme-senha {
+    position: absolute;
+    background-image: url("/aula-28/img/visibility.svg");
+    background-repeat: no-repeat;
+    z-index: 1;
+    top: 35.4rem;
+    right: 12.7rem;
+    cursor: pointer;
+  }
+
+  & button {
+    width: 100%;
+    height: 5.5rem;
+
+    &.submit {
+      margin-bottom: 10px;
+      background: var(--linear-gradient-btn);
+      border: none;
+      border-radius: 5px;
+    }
+    &.login-google {
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+      font-size: 1.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+      background-color: transparent;
+      border: 1px solid rgba(234, 234, 234, 1);
+      border-radius: 5px;
+      position: relative;
+    }
+    &.login-google:hover {
+      color: rgba(11, 157, 202, 1);
+    }
+    &.login-google::before {
+      content: "";
+      display: inline-block;
+      width: 10rem;
+      margin: auto 0;
+      height: 5rem;
+      background-image: url("/aula-28/img/google.svg");
+      background-repeat: no-repeat;
+      background-size: 3rem;
+      padding-right: 2rem;
+      position: absolute;
+      top: 1rem;
+      left: 15rem;
+    }
+    &.submit:hover {
+      background: var(--linear-gradient-btn-hover);
+    }
+  }
+  a.inscreva {
+    color: rgba(11, 157, 202, 1);
+  }
+  a:hover {
+    cursor: pointer;
+  }
+
+  & div#h3 {
+    display: flex;
+    width: 100%;
+
+    & h3 {
+      font-size: 1.8rem;
+      margin-block: 1.8rem 1rem;
+    }
+  }
+
+  & a.esqueci-pass {
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: end;
+    margin-left: 37rem;
+    cursor: pointer;
+  }
+  & a.esqueci-pass:hover {
+    color: rgba(11, 157, 202, 1);
+  }
+  p.login-alternative {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  & p.login-alternative::after {
+    content: "";
+    display: inline-block;
+    width: 35%;
+    height: 1px;
+    margin-bottom: 3px;
+    background-color: var(--color-p-a);
+    margin-left: 10px;
+  }
+  & p.login-alternative::before {
+    content: "";
+    margin-right: 10px;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 35%;
+    height: 1px;
+    background-color: var(--color-p-a);
+  }
+
+  & button.submit {
+    color: var(--color-btn);
+  }
+}
+div.none {
+  display: none;
+  transition: 0.5s;
+}
+div.mensage-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  background-color: var(--alert-bg-error);
+  color: var(--alert-color-error);
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 55rem;
+  height: 5rem;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  transition: 0.5s;
+  left: 40rem;
+}
+div.mensage-acert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--alert-bg-acert);
+  color: var(--alert-color-acert);
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 50rem;
+  height: 5rem;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  transition: 0.5s;
+  left: 40rem;
+}
+
+button,
+a {
+  cursor: pointer;
+}
