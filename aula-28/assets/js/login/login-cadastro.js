@@ -33,7 +33,8 @@
   if (!$formCadastro.get()[0].classList.contains("none")) {
     textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja Bem-Vindo(a)!</h2>";
     textP.get()[0].innerHTML =
-      "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você para as estrelas.</p>";
+      "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você" +
+      " para as estrelas.</p>";
   } else {
     textH2.get()[0].innerHTML =
       "<h2>Olá! <br> Seja bem-vindo(a) de volta.</h2>";
@@ -62,7 +63,8 @@
     if (!$formCadastro.get()[0].classList.contains("none")) {
       textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja Bem-Vindo(a)!</h2>";
       textP.get()[0].innerHTML =
-        "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você para as estrelas.</p>";
+        "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você"+
+        " para as estrelas.</p>";
     } else {
       textH2.get()[0].innerHTML =
         "<h2>Olá! <br> Seja bem-vindo(a) de volta.</h2>";
@@ -273,7 +275,7 @@
       passValid === false &&
       nameValid === false
     ) {
-      
+
       $emailCadastro.get()[0].classList.add("acert-email");
 
 
@@ -349,7 +351,7 @@
     ) {
       $passConfirm.get()[0].classList.add("acert-pass");
       $pass.get()[0].classList.add("acert-pass");
-      
+
       $emailCadastro.get()[0].classList.remove("acert-email");
       $emailCadastro.get()[0].classList.add("error-email");
       $nameCadastro.get()[0].classList.remove("acert-email");

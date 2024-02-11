@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página de cadastros</title>
-        <link rel="stylesheet" href="/aula-28/assets/css/cadastro/style.css">
+        <link rel="stylesheet" href="/assets/css/cadastro/style.css">
     </head>
 
     <body>
@@ -15,7 +15,7 @@
                 <ul>
                     <li>Cadastro</li>
                     <li>Contado</li>
-                    <li><a href="/aula-28/html/login/" class="sair">Sair</a></li>
+                    <li><a href="/html/login/" class="sair">Sair</a></li>
                 </ul>
             </nav>
         </header>
@@ -46,14 +46,16 @@
             </form>
             <h2 class="carros-h2">Carros a Venda</h2>
             <div data-js="carros" class="carros">
-                <div class="card-car">
-                    <div>
-                        <img class="card"  src="/aula-28/img/bg-estrelas.jpeg" alt="">
-                        <div class="informacoes">
+                <div data-js="card-car" class="card-car">
+                    <div data-js="card-complete">
+                        <img class="card" src="/img/bg-estrelas.jpeg" alt="">
+                        <div data-js="informacoes" class="informacoes">
                             <p class="key-info">FIAT: <span class="resp-infor">Palio</span></p>
                             <p class="key-info">Ano: <span class="resp-infor">2019</span></p>
                             <p class="key-info">Placa: <span class="resp-infor">pnj2019b</span></p>
                             <p class="key-info">Cor: <span class="resp-infor">Preto</span></p>
+                            <a class="editar-card" id="editar">Editar</a>
+                            <a data-js="btn-excluir" class="excluir-card">Excluir</a>
                         </div>
                     </div>
                 </div>
@@ -73,9 +75,9 @@
                     <li>Caucaia - CE</li>
                 </ul>
                 <div class="redes">
-                    <img src="/aula-28/img/instagram.svg" alt="">
-                    <img src="/aula-28/img/facebook.svg" alt="">
-                    <img src="/aula-28/img/youtube.svg" alt="">
+                    <img src="/img/instagram.svg" alt="">
+                    <img src="/img/facebook.svg" alt="">
+                    <img src="/img/youtube.svg" alt="">
                 </div>
             </div>
             <div class="informacoes-footer">
@@ -88,11 +90,13 @@
                 </ul>
 
             </div>
-            <div class="final"><p><span data-js="empresa">Galáxia Motors</span> © Alguns direitos reservados.</p></div>
+            <div class="final">
+                <p><span data-js="empresa">Galáxia Motors</span> © Alguns direitos reservados.</p>
+            </div>
         </footer>
 
-        <script src="/aula-28/assets/js/lib_dom/dom.js"></script>
-        <script src="/aula-28/assets/js/cadastro/cadastro_veiculo.js"></script>
+        <script src="/assets/js/lib_dom/dom.js"></script>
+        <script src="/assets/js/cadastro/cadastro_veiculo.js"></script>
     </body>
 
 </html>

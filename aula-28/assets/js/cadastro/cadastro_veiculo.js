@@ -1,5 +1,3 @@
-
-
 (function (DOM, doc) {
   "use strict";
 
@@ -43,16 +41,39 @@
       init: function init() {
         this.getInfoAjax();
         this.initEvents();
+        this.clickBtnExcluir();
       },
 
       initEvents() {
         const btnCadastrar = new DOM('[data-js="btn-cadastrar"]').on(
           "click",
-          (e) => this.handleClickButton(e)
+          (e) => {
+            this.handleClickButtonCadastrar(e);
+            this.clickBtnExcluir();
+          }
         );
       },
 
-      handleClickButton: function handleClickButton(e) {
+      clickBtnExcluir: function clickBtnExcluir() {
+        const btnExcluir = new DOM('[data-js="btn-excluir"]');
+        const $divInformacoes = new DOM('[data-js="card-car"]');
+
+        btnExcluir.forEach((item, index, array) => {
+          item.addEventListener("click", function () {
+            $divInformacoes
+              .get()
+              [index].parentNode.removeChild($divInformacoes.get()[index]);
+          });
+        });
+      },
+
+      handleClickButtonExcluir: function handleClickButtonExcluir(e) {
+        e.preventDefault();
+        const $divInformacoes = new DOM('[data-js="card-car"]');
+        $divInformacoes.forEach((item, index, array) => {});
+      },
+
+      handleClickButtonCadastrar: function handleClickButtonCadastrar(e) {
         e.preventDefault();
         const $divCar = new DOM('[data-js="carros"]').get()[0];
         $divCar.appendChild(this.createHtmlTags());
@@ -63,12 +84,11 @@
         const $placaInput = new DOM('[data-js="placa-input"]');
         const $corInput = new DOM('[data-js="cor-input"]');
 
-        $imgInput.get()[0].value = '';
-        $marcaInput.get()[0].value = '';
-        $anoInput.get()[0].value = '';
-        $placaInput.get()[0].value = '';
-        $corInput.get()[0].value = '';
-        
+        $imgInput.get()[0].value = "";
+        $marcaInput.get()[0].value = "";
+        $anoInput.get()[0].value = "";
+        $placaInput.get()[0].value = "";
+        $corInput.get()[0].value = "";
       },
 
       getInfoAjax: function getInfoAjax() {
@@ -76,17 +96,25 @@
         const $contatoEmpresa = new DOM('[data-js="contato"]');
 
         const ajax = new XMLHttpRequest();
-        ajax.open("GET", "/aula-28/data/company.json");
+        ajax.open("GET", "/data/company.json");
         ajax.send(null);
-        ajax.addEventListener("readystatechange", function() {
+        ajax.addEventListener("readystatechange", function () {
           if (isRequestOk(ajax)) {
-            $nameEmpresa.get()[0].innerText = JSON.parse(ajax.responseText).name;
-            $contatoEmpresa.get()[0].innerText = JSON.parse(ajax.response).phone;
+            $nameEmpresa.get()[0].innerText = JSON.parse(
+              ajax.responseText
+            ).name;
+            $contatoEmpresa.get()[0].innerText = JSON.parse(
+              ajax.response
+            ).phone;
             $contatoEmpresa.get()[1].innerText = JSON.parse(
               ajax.responseText
             ).phone;
-            $nameEmpresa.get()[1].innerText = JSON.parse(ajax.responseText).name;
-            $nameEmpresa.get()[2].innerText = JSON.parse(ajax.responseText).name;
+            $nameEmpresa.get()[1].innerText = JSON.parse(
+              ajax.responseText
+            ).name;
+            $nameEmpresa.get()[2].innerText = JSON.parse(
+              ajax.responseText
+            ).name;
           }
         });
 
@@ -105,6 +133,8 @@
         const $pMarca = doc.createElement("p");
         const $pAno = doc.createElement("p");
         const $pCor = doc.createElement("p");
+        const $btnEdit = doc.createElement("a");
+        const $btnExcluir = doc.createElement("a");
 
         const $imgInput = new DOM('[data-js="img-input"]');
         const $marcaInput = new DOM('[data-js="marca-input"]');
@@ -113,6 +143,7 @@
         const $corInput = new DOM('[data-js="cor-input"]');
 
         $div.classList.add("card-car");
+        $div.setAttribute("data-js", "card-car");
         $div.appendChild($childDiv);
 
         $childDiv.appendChild($image);
@@ -137,6 +168,15 @@
         $childDiv2.appendChild($pCor);
         $pCor.classList.add("key-info");
         $pCor.textContent = $corInput.get()[0].value;
+
+        $childDiv2.appendChild($btnEdit);
+        $btnEdit.classList.add("editar-card");
+        $btnEdit.textContent = "Editar";
+
+        $childDiv2.appendChild($btnExcluir);
+        $btnExcluir.setAttribute("data-js", "btn-excluir");
+        $btnExcluir.classList.add("excluir-card");
+        $btnExcluir.textContent = "Excluir";
 
         return $fragment.appendChild($div);
       },
