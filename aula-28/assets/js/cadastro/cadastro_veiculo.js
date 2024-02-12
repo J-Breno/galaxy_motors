@@ -67,12 +67,6 @@
         });
       },
 
-      handleClickButtonExcluir: function handleClickButtonExcluir(e) {
-        e.preventDefault();
-        const $divInformacoes = new DOM('[data-js="card-car"]');
-        $divInformacoes.forEach((item, index, array) => {});
-      },
-
       handleClickButtonCadastrar: function handleClickButtonCadastrar(e) {
         e.preventDefault();
         const $divCar = new DOM('[data-js="carros"]').get()[0];
@@ -83,6 +77,44 @@
         const $anoInput = new DOM('[data-js="ano-input"]');
         const $placaInput = new DOM('[data-js="placa-input"]');
         const $corInput = new DOM('[data-js="cor-input"]');
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("POST", "http://localhost:3000/car");
+        ajax.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        // var documento = {
+        //   image: $imgInput.get()[0].value,
+        //   brandModel: $marcaInput.get()[0].value,
+        //   year: $anoInput.get()[0].value,
+        //   plate: $placaInput.get()[0].value,
+        //   color: $corInput.get()[0].value,
+        // };
+        ajax.send(
+          `image=${$imgInput.get()[0].value}&brandModel=${
+            $marcaInput.get()[0].value
+          }&year=${$anoInput.get()[0].value}&plate=${
+            $placaInput.get()[0].value
+          }&color=${$corInput.get()[0].value}`
+        );
+
+        console.log("Cadastrando o usuário....");
+        ajax.onreadystatechange = function () {
+          if (ajax.readyState === 4) {
+            console.log("Usuário cadastrado...");
+            console.log(ajax.responseText);
+          }
+        };
+
+        var get = new XMLHttpRequest();
+        get.open("GET", "http://localhost:3000/car");
+        get.send();
+        get.onreadystatechange = function () {
+          if (get.readyState === 4) {
+            console.log(get.responseText);
+          }
+        };
 
         $imgInput.get()[0].value = "";
         $marcaInput.get()[0].value = "";
