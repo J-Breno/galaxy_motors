@@ -5,36 +5,25 @@ var router = express.Router();
 var data = [];
 
 router.get("/", function (req, res) {
-  console.log("[GET] /car:", data);
   res.json(data);
 });
 
 router.post("/", function (req, res) {
-  var image = req.body.image;
-  var brandModel = req.body.brandModel;
-  var year = req.body.year;
-  var plate = req.body.plate;
-  var color = req.body.color;
-
   data.push({
-    image: image,
-    brandModel: brandModel,
-    year: year,
-    plate: plate,
-    color: color,
+    image: req.body.image,
+    brandModel: req.body.brandModel,
+    year: req.body.year,
+    plate: req.body.plate,
+    color: req.body.color,
   });
-  console.log(
-    "[POST] /car:",
-    JSON.stringify(
-      {
-        body: req.body,
-        data,
-      },
-      null,
-      2
-    )
-  );
-  res.json(data);
+  res.json({ message: "success" });
+});
+
+router.delete("/", function (req, res) {
+  data = data.filter(function (car) {
+    return car.plate !== req.body.plate;
+  });
+  res.json({ message: "success" });
 });
 
 module.exports = router;
